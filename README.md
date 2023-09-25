@@ -2,7 +2,7 @@
 
 A [Rinha de Backend 2023 Q3](https://github.com/zanfranceschi/rinha-de-backend-2023-q3) foi uma gincana organizada pelo [Francisco Zanfranceschi](https://github.com/zanfranceschi) entre 28 de Julho e 25 de Agosto de 2023.
 
-Eu só tomei conhecimento do evento depois que ele já tinha acabado, mas decidir criar um projeto para poder comparar os resultados com o dos outros participantes.
+Eu só tomei conhecimento do evento depois que ele já tinha acabado, mas decidi criar um projeto para poder comparar os resultados com o dos outros participantes.
 
 Esta versão possui as seguintes características:
 * .NET 6
