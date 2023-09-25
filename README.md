@@ -20,7 +20,9 @@ O objetivo obviamente não é figurar entre os melhores resultados da competiç�
 Instalar o [Docker](https://www.docker.com/) se você ainda não tiver.
 
 Clonar este repositório: 
-```git clone https://github.com/danarrib/rinha-be-2023q3.git```
+```
+git clone https://github.com/danarrib/rinha-be-2023q3.git
+```
 
 Navegar até o diretório ```src```:
 ```
@@ -29,15 +31,23 @@ cd src
 ```
 
 Criar a imagem da API usando o seguinte comando no diretório ```src``` do repositório:
-```docker build -t rinha-be-danarrib -f Dockerfile .```
+```
+docker build -t rinha-be-danarrib -f Dockerfile .
+```
 
 Subir os containers todos (duas instâncias da API, o Nginx e o Postgres):
-```docker-compose up -d```
+```
+docker-compose up -d
+```
 
 Com os containers todos rodando, você poderá acessar a documentação online da API em http://localhost:9999
 
 Para remover os containers todos:
-```docker-compose down```
+```
+docker-compose down
+```
 
 E para excluir a imagem da API:
-```docker rmi rinha-be-danarrib```
+```
+docker rmi rinha-be-danarrib
+```
