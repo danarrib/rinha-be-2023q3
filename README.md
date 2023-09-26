@@ -6,14 +6,17 @@ Eu só tomei conhecimento do evento depois que ele já tinha acabado, mas decidi
 
 Esta versão possui as seguintes características:
 * .NET 6
-* EFCore 6
-* Code-first
+* Entity Framework Core 6 (Code-first)
 * Banco de dados Postgres
 * Sem cache de nenhum tipo
+* Sem usar Async/Await ou qualquer tipo de paralelismo
+* Nenhum tipo de otimização avançada
 
-Ou seja: É a API mais simples que se pode imaginar.
+Ou seja: É a API em C# mais simples que se pode imaginar. Do tipo que um desenvolvedor iniciante poderia fazer.
 
 O objetivo obviamente não é figurar entre os melhores resultados da competição, mas sim ter uma ideia do quão ruim uma API não-otimizada pode ser comparada a uma API extremamente otimizada.
+
+Escolhi o .NET 6 e o EFCore 6 por serem as versões LTS (Long Term Support), que são as mais usadas em ambientes corporativos. As versões 7 e 8 do .NET e do EFCore possuem diversas melhorias de desempenho, mas a versão 7 não é LTS e a 8 ainda não foi oficialmente lançada.
 
 ## Como rodar
 
@@ -51,3 +54,10 @@ E para excluir a imagem da API:
 ```
 docker rmi rinha-be-danarrib
 ```
+
+## Resultados
+
+Usando o stress test usado para testar as APIs da Rinha, esta API apresenta resultados na faixa de **38.000** registros.
+
+A título de referência API vencedora teve **44.936**. Se estivesse competindo, esta API teria ficado em 10º lugar.
+

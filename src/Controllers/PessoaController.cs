@@ -44,6 +44,7 @@ namespace RinhaBackend2023Q3.Controllers
             {
                 var pessoas = _context.Pessoas
                     .Where(x => x.SearchIndex.Contains(t.ToLower()))
+                    .OrderBy(x => x.Id)
                     .Take(50)
                     .ToList();
 
@@ -63,8 +64,12 @@ namespace RinhaBackend2023Q3.Controllers
             if (!ValidatePessoa(pessoa))
                 return new UnprocessableEntityResult();
 
+            var stacks = string.Empty;
+            if(pessoa.Stack != null)
+                stacks = string.Join(" ", pessoa.Stack.Select(x => x.ToLower()));
+
             pessoa.Id = Guid.NewGuid();
-            pessoa.SearchIndex = $"{pessoa.Nome.ToLower()} {pessoa.Apelido.ToLower()} {string.Join(" ", pessoa.Stack.Select(x => x.ToLower()))}";
+            pessoa.SearchIndex = $"{pessoa.Nome.ToLower()} {pessoa.Apelido.ToLower()} {stacks}";
 
             try
             {
@@ -85,14 +90,6 @@ namespace RinhaBackend2023Q3.Controllers
         {
             var qtdRegistros = _context.Pessoas.LongCount();
             return new OkObjectResult(qtdRegistros);
-        }
-
-        [HttpDelete]
-        [Route("limpar-banco-de-dados")]
-        public ActionResult LimparBanco()
-        {
-            _context.Database.ExecuteSqlRaw($"TRUNCATE TABLE [pessoas];");
-            return new OkResult();
         }
 
         private bool ValidatePessoa(Pessoa pessoa)

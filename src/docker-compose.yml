@@ -7,6 +7,8 @@ services:
       - db
     expose:
       - "80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
     deploy:
       resources:
         limits:
@@ -20,6 +22,8 @@ services:
       - db
     expose:
       - "80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
     deploy:
       resources:
         limits:
