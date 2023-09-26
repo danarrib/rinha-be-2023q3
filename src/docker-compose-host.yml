@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     environment:
-      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
+      - ConnectionStrings__DefaultConnection=Host=localhost;Database=pessoas;Username=postgres;Password=rinha123
       - ASPNETCORE_URLS=http://+:9001
     deploy:
       resources:
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     environment:
-      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
+      - ConnectionStrings__DefaultConnection=Host=localhost;Database=pessoas;Username=postgres;Password=rinha123
       - ASPNETCORE_URLS=http://+:9002
     deploy:
       resources:
