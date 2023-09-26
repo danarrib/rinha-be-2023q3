@@ -69,9 +69,11 @@ A propriedade ```network_mode``` dos serviços descritos no ```docker-compose.ym
 
 Porém, este modo limita bastante a capacidade de resposta da rede para muitas requisições simultâneas. Acima de 1000 usuários simultâneos o docker começa a não mais ser capaz de direcionar corretamente as requisições externas.
 
+![image](https://github.com/danarrib/rinha-be-2023q3/assets/17026744/87c6937f-9c6b-4909-a288-d9477b3a2ca8)
+
 A solução para isso é colocar o ```network_mode``` com valor ```host```, o que faria com que os serviços descritos passassem a expor suas portas diretamente na rede host, eliminando esta camada intermediária do Docker.
 
-O problema é que este valor só funciona no Linux. No Docker para Windows ou para Mac, não é possível utilizar este valor.
+O problema é que [este valor só funciona no Linux](https://docs.docker.com/network/network-tutorial-host/#prerequisites). No Docker para Windows ou para Mac, não é possível utilizar este valor.
 
 ### Ajuste fino do nginx.conf
 
