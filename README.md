@@ -29,7 +29,7 @@ git clone https://github.com/danarrib/rinha-be-2023q3.git
 
 Navegar até o diretório ```src```:
 ```
-cd rinha-br-2023q3
+cd rinha-be-2023q3
 cd src
 ```
 
