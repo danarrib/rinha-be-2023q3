@@ -40,14 +40,14 @@ docker build -t rinha-be-danarrib -f Dockerfile .
 
 Subir os containers todos (duas instâncias da API, o Nginx e o Postgres):
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
-Com os containers todos rodando, você poderá acessar a documentação online da API em http://localhost:9999
+Com os containers todos rodando, você poderá acessar a documentação online da API em http://localhost:9999/swagger
 
 Para remover os containers todos:
 ```
-docker-compose down
+docker compose down
 ```
 
 E para excluir a imagem da API:

@@ -1,0 +1,59 @@
+version: '3.5'
+services:
+  api1: # API - Instância 01
+    image: rinha-be-danarrib
+    hostname: api1
+    network_mode: host
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
+      - ASPNETCORE_URLS=http://+:9001
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  api2: # API - Instância 01
+    image: rinha-be-danarrib
+    hostname: api2
+    network_mode: host
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=pgdb;Database=pessoas;Username=postgres;Password=rinha123
+      - ASPNETCORE_URLS=http://+:9002
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    network_mode: host
+    volumes:
+      - ./nginx-host.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
+
+  db: # Banco de dados
+    image: postgres
+    network_mode: host
+    hostname: pgdb
+    environment:
+      - POSTGRES_PASSWORD=rinha123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=pessoas
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
